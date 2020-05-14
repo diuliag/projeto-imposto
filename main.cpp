@@ -7,6 +7,7 @@ int main()
     double ganhoSalario, ganhoServico, ganhoCapital, gastoMedico, gastoEducacao;
     double impostoSalario, impostoServico, impostoCapital;
     double impostoBruto, maximoDedutivel, gastosDedutiveis;
+    double abatimento, impostoDevido;
     cout << "Renda anual com salario: ";
     cin >> ganhoSalario;
 
@@ -48,6 +49,14 @@ int main()
    gastosDedutiveis = gastoEducacao + gastoMedico;
 
 
+   if (gastosDedutiveis > maximoDedutivel) {
+
+    abatimento = maximoDedutivel;
+   }
+
+   impostoDevido = impostoBruto - abatimento;
+
+
     cout << fixed << setprecision(2);
     cout << endl << "RELATORIO DE IMPOSTO DE RENDA" << endl << endl;
     cout << "CONSOLIDADO DE RENDA:" << endl;
@@ -58,6 +67,12 @@ int main()
     cout << endl << "DEDUCOES:" << endl;
     cout << "Maximo dedutivel: " << maximoDedutivel << endl;
     cout << "Gastos dedutiveis: " << gastosDedutiveis << endl;
+
+
+    cout << endl << "RESUMO:" << endl;
+    cout << "Imposto bruto total: " << impostoBruto << endl;
+    cout << "Abatimento: " << abatimento << endl;
+    cout << "Imposto devido: " << impostoDevido << endl;
 
 
     return 0;
